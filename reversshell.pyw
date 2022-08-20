@@ -5,7 +5,6 @@ import requests
 
 telegram_token = 'your telegram token'
 chat_id='your chat id'
-'
 
 def cmd(command):
     p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
