@@ -3,8 +3,8 @@ from time import sleep
 import subprocess
 import requests
 
-telegram_token = '5424626039:AAHFuTTwIoIQI8I-3hgPvg8vE5_gFTtLmRI'
-chat_id='-1001550861772'
+telegram_token = 'your telegram token'
+chat_id='your chat id'
 
 def cmd(command):
     p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
